@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "thoughts",
+  "info": {
+    "singularName": "thought",
+    "pluralName": "thoughts",
+    "displayName": "Thought"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "occurred": {
+      "type": "date"
+    },
+    "featured_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
