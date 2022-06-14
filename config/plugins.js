@@ -11,5 +11,13 @@ module.exports = ({ env }) => ({
                 },
             },
         },
-    }
+    },
+    'users-permissions': {
+        config: {
+          jwtSecret: env('ADMIN_JWT_SECRET'),
+          jwt: {
+            expiresIn: '7d',
+          },
+        },
+      },
   });
