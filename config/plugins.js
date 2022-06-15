@@ -9,7 +9,13 @@ module.exports = ({ env }) => ({
                 params: {
                     Bucket: env('AWS_BUCKET_NAME'),
                 },
+                logger: console // Only if you want to `stdout` logs
             },
+            actionOptions: {
+                upload: {},
+                uploadStream: {},
+                delete: {},
+              },
         },
     },
     'users-permissions': {
