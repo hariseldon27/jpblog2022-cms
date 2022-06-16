@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * idea router.
+ * blogpost router.
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::idea.idea');
+module.exports = createCoreRouter('api::blogpost.blogpost');
