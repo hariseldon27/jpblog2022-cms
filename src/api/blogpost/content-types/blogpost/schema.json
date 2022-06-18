@@ -30,9 +30,9 @@
         "audios"
       ]
     },
-    "tag": {
+    "tags": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "blogposts"
     },
@@ -49,6 +49,12 @@
     },
     "date": {
       "type": "date"
+    },
+    "display_locations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::display-location.display-location",
+      "inversedBy": "blogposts"
     }
   }
 }

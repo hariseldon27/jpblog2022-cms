@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "display_locations",
+  "info": {
+    "singularName": "display-location",
+    "pluralName": "display-locations",
+    "displayName": "display_location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blogposts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::blogpost.blogpost",
+      "inversedBy": "display_locations"
+    },
+    "location_name": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

@@ -16,9 +16,9 @@
     },
     "blogposts": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::blogpost.blogpost",
-      "mappedBy": "tag"
+      "inversedBy": "tags"
     }
   }
 }
