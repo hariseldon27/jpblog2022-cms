@@ -26,7 +26,14 @@ module.exports = [
       },
     },
   },
-  'strapi::cors',
+  { 
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      headers: '*',
+      origin: ['http://localhost:3000', 'north141.com' ]
+    }
+  },
   'strapi::poweredBy',
   'strapi::logger',
   'strapi::query',
