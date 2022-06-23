@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_middles",
+  "info": {
+    "singularName": "home-middle",
+    "pluralName": "home-middles",
+    "displayName": "home_middle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "headline": {
+      "type": "string"
+    },
+    "subheadline": {
+      "type": "string"
+    }
+  }
+}
