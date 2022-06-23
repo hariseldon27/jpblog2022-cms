@@ -29,11 +29,10 @@ module.exports = [
   { 
     name: 'strapi::cors',
     config: {
-      origin: ['localhost:3000', 'north141.com'],
-      methods: ['GET'],
-      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
-      keepHeaderOnError: true,
-    },
+      enabled: true,
+      header: '*',
+      origin: ['http://localhost:3000']
+    }
   },
   'strapi::poweredBy',
   'strapi::logger',
