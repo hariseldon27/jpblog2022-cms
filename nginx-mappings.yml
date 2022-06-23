@@ -1,0 +1,7 @@
+name: north141
+domain-root: north141.com
+mappings:
+  - port: 1337
+    prefix: dev
+  - port: 3000
+    prefix: local
