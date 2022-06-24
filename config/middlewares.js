@@ -34,17 +34,6 @@ module.exports = [
       origin: ['https://api.north141.com', 'https://local.north141.com', 'https://dev.north141.com']
     }
   },
-  // {
-  //   name: 'strapi::body',
-  //   config: {
-  //     formLimit: "256mb", 
-  //     jsonLimit: "256mb", 
-  //     textLimit: "256mb", 
-  //     formidable: {
-  //       maxFileSize: 200 * 1024 * 1024, 
-  //     }
-  //   }
-  // },
   'strapi::poweredBy',
   'strapi::logger',
   'strapi::query',
