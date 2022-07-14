@@ -1,4 +1,4 @@
-module.exports = ({env}) =>{[
+module.exports = ({env}) => [
   'strapi::errors',
   {
     name: 'strapi::security',
@@ -7,18 +7,8 @@ module.exports = ({env}) =>{[
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': [
-            "'self'",
-            'data:',
-            'blob:',
-            'https://strapi-jpblog2022-storage.s3.us-west-2.amazonaws.com',
-          ],
-          'media-src': [
-            "'self'",
-            'data:',
-            'blob:',
-            'https://strapi-jpblog2022-storage.s3.us-west-2.amazonaws.com',
-          ],
+          'img-src': ["'self'", 'data:', 'blob:', 'https://dl.airtable.com', 'https://strapi-jpblog2022-storage.s3.us-west-2.amazonaws.com/',],
+          'media-src': ["'self'", 'data:', 'blob:', 'https://strapi-jpblog2022-storage.s3.us-west-2.amazonaws.com/',],
           upgradeInsecureRequests: null,
         },
       },
@@ -39,4 +29,4 @@ module.exports = ({env}) =>{[
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
-]};
+] ;
