@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_comps_footer_entries",
+  "info": {
+    "displayName": "footer_entry"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

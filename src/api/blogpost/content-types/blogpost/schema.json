@@ -16,9 +16,6 @@
       "type": "string",
       "required": true
     },
-    "content": {
-      "type": "richtext"
-    },
     "featured_image": {
       "type": "media",
       "multiple": false,
@@ -54,7 +51,17 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::display-location.display-location",
-      "inversedBy": "blogposts"
+      "mappedBy": "blogposts"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "comps.hero-image",
+        "comps.rich-text",
+        "comps.image-collection",
+        "comps.hero",
+        "comps.article-entry"
+      ]
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "display-location",
     "pluralName": "display-locations",
-    "displayName": "display_location"
+    "displayName": "display_location",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,9 +18,14 @@
       "target": "api::blogpost.blogpost",
       "inversedBy": "display_locations"
     },
-    "location_name": {
-      "type": "string",
-      "required": false
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "home_hero1",
+        "home_hero2",
+        "home_article",
+        "archive"
+      ]
     }
   }
 }

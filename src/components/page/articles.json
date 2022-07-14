@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_page_articles",
+  "info": {
+    "displayName": "articles"
+  },
+  "options": {},
+  "attributes": {
+    "article_entry": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comps.article-entry"
+    }
+  }
+}

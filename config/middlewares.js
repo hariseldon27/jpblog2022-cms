@@ -1,4 +1,4 @@
-module.exports = [
+module.exports = ({env}) =>{[
   'strapi::errors',
   {
     name: 'strapi::security',
@@ -31,7 +31,7 @@ module.exports = [
     config: {
       enabled: true,
       headers: '*',
-      origin: ['https://api.north141.com', 'https://local.north141.com', 'https://dev.north141.com']
+      origin: env.array('CORS_ORIGIN')
     }
   },
   'strapi::poweredBy',
@@ -41,4 +41,4 @@ module.exports = [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
-];
+]};

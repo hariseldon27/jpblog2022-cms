@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_page_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "angle-double-right"
+  },
+  "options": {},
+  "attributes": {
+    "footer_entry": {
+      "displayName": "footer_entry",
+      "type": "component",
+      "repeatable": true,
+      "component": "comps.footer-entry"
+    }
+  }
+}
