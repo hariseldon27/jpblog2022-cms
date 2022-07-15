@@ -12,13 +12,20 @@
     "subtitle": {
       "type": "string"
     },
-    "image": {
-      "type": "string"
-    },
     "blogpost": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::blogpost.blogpost"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
