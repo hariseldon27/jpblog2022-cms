@@ -13,7 +13,10 @@
     "class_name": {
       "type": "string"
     },
-    "section_headline": {
+    "section_title": {
+      "type": "string"
+    },
+    "title": {
       "type": "string"
     }
   }

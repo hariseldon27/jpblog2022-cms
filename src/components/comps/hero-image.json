@@ -33,6 +33,18 @@
         "center",
         "right"
       ]
+    },
+    "class_name": {
+      "type": "string"
+    },
+    "section_title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

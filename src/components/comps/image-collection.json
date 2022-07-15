@@ -32,6 +32,18 @@
         "medium",
         "large"
       ]
+    },
+    "class_name": {
+      "type": "string"
+    },
+    "section_title": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
