@@ -1,4 +1,5 @@
 module.exports = ({env}) => [
+
   'strapi::errors',
   {
     name: 'strapi::security',
@@ -22,6 +23,7 @@ module.exports = ({env}) => [
       origin: env.array('CORS_ORIGIN')
     }
   },
+  
   'strapi::poweredBy',
   'strapi::logger',
   'strapi::query',
@@ -29,4 +31,8 @@ module.exports = ({env}) => [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
+  {
+    name: 'api::homepage.homepage-full',
+    resolve: './src/middlewares/homepage-full.js'
+  }
 ] ;
