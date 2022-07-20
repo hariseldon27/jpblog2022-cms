@@ -3,7 +3,7 @@ module.exports = {
         {
             method: 'GET',
             path: '/homepage/full',
-            handler: 'homepage.find',
+            handler: 'homepage.full',
             config: {
                 // middlewares: [
                 //     'api::homepage.homepage-full'

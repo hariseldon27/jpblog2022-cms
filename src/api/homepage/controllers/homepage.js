@@ -35,16 +35,18 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
   const model = strapi.getModel(modelUid);
   for (const [key, value] of Object.entries(
     getModelPopulationAttributes(model)
+
+    //new idea: recursively go through dynamic zones only - specific rules for what to do with arrays?
   )) {
     if (value) {
       if (value.type === "component") {
         console.log('+++++COMPONENT++++')
-        console.log(value)
+        console.log(`====VALUE: `, value)
         populate[key] = getFullPopulateObject(value.component, maxDepth - 1);
         console.log(`component!!!POPULATE!!!!`, populate)
       } else if (value.type === "dynamiczone") {
         console.log('*****DYNAMIC*****')
-        console.log(value)
+        console.log(`====VALUE: `, value)
         const dynamicPopulate = value.components.reduce((prev, cur) => {
           const curPopulate = getFullPopulateObject(cur, maxDepth - 1);
           return curPopulate === true ? prev : merge(prev, curPopulate);
@@ -54,12 +56,13 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
         
       } else if (value.type === "relation") {
         console.log('<<<<<RELATION>>>>>')
-        console.log(value)
+        console.log(`====VALUE: `, value)
         const relationPopulate = getFullPopulateObject(
           value.target,
           maxDepth - 1
         );
         if (relationPopulate) {
+            console.log(`relationshipPopulate: `, relationPopulate)
           populate[key] = relationPopulate;
         }
         console.log(`!!!POPULATE!!!!`, populate)
@@ -73,7 +76,7 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
       }
     }
   }
-//   console.log(`populate obj: `, populate)
+  console.log(`populate obj: `, populate)
   return isEmpty(populate) ? true : { populate };
 };
 
@@ -81,16 +84,16 @@ const modelUid = "api::homepage.homepage";
 
 module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
 
-          async find(ctx) {
+          async full(ctx) {
             
             const { query } = ctx;
-        
+            console.log(`ctx: `, ctx)
             const { results, meta } = await strapi.service(modelUid).find({
               ...getFullPopulateObject(modelUid),
               ...query,
             });
             console.log('*********************')
-
+            console.log('modelUid: ', modelUid)
             console.log('query: ', query)
             console.log(`meta: `, meta)
             console.log(`results: `, results)

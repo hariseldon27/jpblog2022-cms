@@ -15,10 +15,21 @@
     "seo_title": {
       "type": "string"
     },
-    "top_landing": {
-      "type": "component",
-      "repeatable": false,
-      "component": "page.landing"
+    "seo_description": {
+      "type": "string"
+    },
+    "homepage_tophero_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "homepage_copy": {
+      "type": "richtext"
     }
   }
 }
