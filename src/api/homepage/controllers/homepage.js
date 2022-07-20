@@ -81,6 +81,29 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
 
 const modelUid = "api::homepage.homepage";
 
+// declarations for the gimme function
+// see @urbandale's post for context: https://forum.strapi.io/t/strapi-v4-populate-media-and-dynamiczones-from-components/12670/26
+const components = {
+    Image: true, // get data for media item field called "Image"
+    articles: {
+      populate: {
+        article_entry: {
+            populate: {
+                display_text: true,
+                blogposts: true,
+            }
+        },
+    },
+    homepage_body: {
+        populate: {
+            hero: {
+                title: true
+            }
+        }
+    }
+    },
+  }
+
 module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
 
         async full(ctx) {
@@ -114,11 +137,15 @@ module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
                     //top landing works enough - again, can't get the blogpost relationship
                     top_landing: {
                         populate: {
-                            image: {
-                                populate: '*'
-                            },
-                            blogpost: {
-                                populate: '*'
+                            // image: {
+                            //     populate: {
+                            //         formats: true
+                            //     }
+                            // },
+                            hero: {
+                                populate: {
+                                    blogpost: true
+                                }
                             }
                         }
                     },
@@ -127,16 +154,32 @@ module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
                     //     populate: '*'
                     // },
                     // we are stuck on the 'articles' array - how do we get the associated blogpost?
-                    articles: {
-                        populate: "*"
-                        }
-                    },
+                    // articles: {
+                    //     populate: "*"
+                    //     }
                 },
-            );
+            },);
             const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
     
             return this.transformResponse(sanitizedEntity);
-        }
+        },
+        ///from strapi forum
+        async gimme(ctx) {
+            console.log(ctx.query.populate)
+            // overwrite default populate=* functionality
+            if (ctx.query.populate === '*') {
+                console.log('yep')
+              const entity = await strapi.entityService.findMany(modelUid, {
+                ...ctx.query,
+                populate: components,
+              })
+              const sanitizedEntity = await this.sanitizeOutput(entity, ctx)
+      
+              return this.transformResponse(sanitizedEntity)
+            }
+            // maintain default functionality for all other request
+            return super.find(ctx)
+          },
 }
 )
 )

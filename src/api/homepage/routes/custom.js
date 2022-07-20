@@ -18,6 +18,14 @@ module.exports = {
             config: {
                 auth: false,
             },
+        },
+        {
+            method: 'GET',
+            path: '/homepage/gimme',
+            handler: 'homepage.gimme',
+            config: {
+                auth: false,
+            },
         }
         
     ]
