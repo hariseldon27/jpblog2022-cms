@@ -18,18 +18,19 @@
     "seo_description": {
       "type": "string"
     },
-    "homepage_tophero_image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+    "top_landing": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comps.hero"
     },
-    "homepage_copy": {
-      "type": "richtext"
+    "homepage_body": {
+      "type": "dynamiczone",
+      "components": [
+        "comps.hero-image",
+        "comps.hero",
+        "comps.image-collection",
+        "comps.rich-text"
+      ]
     }
   }
 }
