@@ -111,22 +111,25 @@ module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
             const entity = await strapi.entityService.findMany('api::homepage.homepage', {
                 populate: {
                     // >>notes: this is working nicely, keep following the QS examples in docs
-
                     //top landing works enough - again, can't get the blogpost relationship
                     top_landing: {
-                        populate: '*'
+                        populate: {
+                            image: {
+                                populate: '*'
+                            },
+                            blogpost: {
+                                populate: '*'
+                            }
+                        }
                     },
-                    
                     //body works - but toooo much data
                     // homepage_body: {
                     //     populate: '*'
                     // },
-
                     // we are stuck on the 'articles' array - how do we get the associated blogpost?
                     articles: {
-                        populate: ['article_entry', 'blogpost']
+                        populate: "*"
                         }
-                    
                     },
                 },
             );
