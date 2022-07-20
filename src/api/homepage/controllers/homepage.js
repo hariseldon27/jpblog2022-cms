@@ -36,7 +36,6 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
   for (const [key, value] of Object.entries(
     getModelPopulationAttributes(model)
 
-    //new idea: recursively go through dynamic zones only - specific rules for what to do with arrays?
   )) {
     if (value) {
       if (value.type === "component") {
