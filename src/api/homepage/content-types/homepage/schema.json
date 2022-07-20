@@ -26,7 +26,6 @@
     "homepage_body": {
       "type": "dynamiczone",
       "components": [
-        "comps.hero-image",
         "comps.hero",
         "comps.image-collection",
         "comps.rich-text"
