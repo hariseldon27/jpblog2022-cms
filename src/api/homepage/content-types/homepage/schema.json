@@ -16,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "comps.hero"
+    },
+    "seo_title": {
+      "type": "string"
     }
   }
 }

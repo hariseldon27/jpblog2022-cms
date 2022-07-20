@@ -39,7 +39,7 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
     if (value) {
       if (value.type === "component") {
         console.log('+++++COMPONENT++++')
-        console.log(value.component)
+        console.log(value)
         populate[key] = getFullPopulateObject(value.component, maxDepth - 1);
         console.log(`!!!POPULATE!!!!`, populate)
       } else if (value.type === "dynamiczone") {
