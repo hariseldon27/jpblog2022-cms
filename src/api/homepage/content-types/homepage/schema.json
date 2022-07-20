@@ -12,15 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "homepage_body": {
-      "type": "dynamiczone",
-      "components": [
-        "comps.hero",
-        "comps.hero-image",
-        "comps.image-collection",
-        "comps.rich-text",
-        "page.articles"
-      ]
+    "HomepageHero": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.landing"
     }
   }
 }
