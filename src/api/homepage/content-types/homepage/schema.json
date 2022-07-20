@@ -30,6 +30,11 @@
         "comps.image-collection",
         "comps.rich-text"
       ]
+    },
+    "articles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page.articles"
     }
   }
 }

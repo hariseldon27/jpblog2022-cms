@@ -83,7 +83,7 @@ const modelUid = "api::homepage.homepage";
 
 module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
 
-          async full(ctx) {
+        async full(ctx) {
             
             const { query } = ctx;
             console.log(`ctx: `, ctx)
@@ -104,8 +104,37 @@ module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
               data: sanitizedEntities,
               meta,
             };
-          },
-        
-    })
+        },
+        async tryme(ctx) {
+            const { query } = ctx;
+
+            const entity = await strapi.entityService.findMany('api::homepage.homepage', {
+                populate: {
+                    top_landing: {
+                        populate: '*'
+                    },
+                    homepage_body: {
+                        populate: '*'
+                        // populate: {
+                        //     hero: {
+                        //         populate: '*'
+                        //     },
+                        //     image_collection: {
+                        //         populate: '*'
+                        //     },
+                        //     rich_text: {
+                        //         populate: '*'
+                        //     }
+                        // }
+                    },
+                    },
+                },
+            );
+            const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+    
+            return this.transformResponse(sanitizedEntity);
+        }
+}
+)
 )
 
