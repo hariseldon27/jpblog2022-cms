@@ -52,16 +52,6 @@
       "relation": "manyToMany",
       "target": "api::display-location.display-location",
       "mappedBy": "blogposts"
-    },
-    "content": {
-      "type": "dynamiczone",
-      "components": [
-        "comps.hero-image",
-        "comps.rich-text",
-        "comps.image-collection",
-        "comps.hero",
-        "comps.article-entry"
-      ]
     }
   }
 }
