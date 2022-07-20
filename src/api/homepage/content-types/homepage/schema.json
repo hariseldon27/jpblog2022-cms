@@ -12,10 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HomepageHero": {
+    "Homepage_Hero_Top": {
       "type": "component",
-      "repeatable": true,
-      "component": "page.landing"
+      "repeatable": false,
+      "component": "comps.hero"
     }
   }
 }

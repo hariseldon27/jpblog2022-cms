@@ -39,6 +39,7 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
     if (value) {
       if (value.type === "component") {
         console.log('+++++COMPONENT++++')
+        console.log(value.component)
         populate[key] = getFullPopulateObject(value.component, maxDepth - 1);
         console.log(`!!!POPULATE!!!!`, populate)
       } else if (value.type === "dynamiczone") {
@@ -75,7 +76,7 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
   return isEmpty(populate) ? true : { populate };
 };
 
-const modelUid = "api::blogpost.blogpost";
+const modelUid = "api::homepage.homepage";
 
 module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
 
