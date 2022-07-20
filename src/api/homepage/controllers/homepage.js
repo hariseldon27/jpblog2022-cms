@@ -41,19 +41,20 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
         console.log('+++++COMPONENT++++')
         console.log(value)
         populate[key] = getFullPopulateObject(value.component, maxDepth - 1);
-        console.log(`!!!POPULATE!!!!`, populate)
+        console.log(`component!!!POPULATE!!!!`, populate)
       } else if (value.type === "dynamiczone") {
         console.log('*****DYNAMIC*****')
+        console.log(value)
         const dynamicPopulate = value.components.reduce((prev, cur) => {
           const curPopulate = getFullPopulateObject(cur, maxDepth - 1);
           return curPopulate === true ? prev : merge(prev, curPopulate);
         }, {});
         populate[key] = isEmpty(dynamicPopulate) ? true : dynamicPopulate;
-        console.log(`!!!POPULATE!!!!`, populate)
+        console.log(`dynamic!!!POPULATE!!!!`, populate)
         
       } else if (value.type === "relation") {
         console.log('<<<<<RELATION>>>>>')
-        
+        console.log(value)
         const relationPopulate = getFullPopulateObject(
           value.target,
           maxDepth - 1
@@ -65,37 +66,20 @@ const getFullPopulateObject = (modelUid, maxDepth = 20) => {
 
       } else if (value.type === "media") {
         console.log('>>>>>MEDIA<<<<<<')
-        // console.log(value.type)
+        console.log(value)
         populate[key] = true;
-        console.log(`!!!POPULATE!!!!`, populate)
+        console.log(`media!!!POPULATE!!!!`, populate)
 
       }
     }
   }
-  console.log(`populate obj: `, populate)
+//   console.log(`populate obj: `, populate)
   return isEmpty(populate) ? true : { populate };
 };
 
 const modelUid = "api::homepage.homepage";
 
 module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
-
-        // async customAction(ctx) {
-            
-        //     try {
-        //         ctx.body = 'ok hello'
-        //     } catch(err) {
-        //         ctx.body = err
-        //     }
-        // },
-
-        // async full(ctx) {
-
-        //    const { data, meta } = await super.find(ctx)
-
-        //    meta.foo = 'sheesh'
-        //    return {data: data, ctx: ctx.request.query}
-        //   },
 
           async find(ctx) {
             

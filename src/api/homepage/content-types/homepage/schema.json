@@ -14,6 +14,11 @@
   "attributes": {
     "seo_title": {
       "type": "string"
+    },
+    "top_landing": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.landing"
     }
   }
 }
