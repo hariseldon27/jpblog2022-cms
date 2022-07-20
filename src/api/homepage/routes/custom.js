@@ -3,11 +3,11 @@ module.exports = {
         {
             method: 'GET',
             path: '/homepage/full',
-            handler: 'homepage.full',
+            handler: 'homepage.find',
             config: {
-                middlewares: [
-                    'api::homepage.homepage-full'
-                ],
+                // middlewares: [
+                //     'api::homepage.homepage-full'
+                // ],
                 auth: false
             }
         },

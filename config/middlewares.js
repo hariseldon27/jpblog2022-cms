@@ -32,7 +32,6 @@ module.exports = ({env}) => [
   'strapi::favicon',
   'strapi::public',
   {
-    name: 'api::homepage.homepage-full',
-    resolve: './src/middlewares/homepage-full.js'
+    name: 'api::homepage.homepage-full'
   }
 ] ;
