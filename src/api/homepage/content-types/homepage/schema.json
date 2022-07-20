@@ -33,7 +33,7 @@
     },
     "articles": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "page.articles"
     }
   }
