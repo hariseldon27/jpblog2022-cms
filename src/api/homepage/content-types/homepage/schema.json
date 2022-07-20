@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Homepage_Hero_Top": {
-      "type": "component",
-      "repeatable": false,
-      "component": "comps.hero"
-    },
     "seo_title": {
       "type": "string"
     }
