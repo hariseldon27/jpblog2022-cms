@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "LandingPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TopHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page.landing",
+      "required": true
+    },
+    "page_body": {
+      "type": "dynamiczone",
+      "components": [
+        "comps.hero-image",
+        "comps.image-collection",
+        "comps.rich-text",
+        "comps.hero"
+      ]
+    }
+  }
+}
