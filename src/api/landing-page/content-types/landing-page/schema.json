@@ -15,9 +15,9 @@
     "page_body": {
       "type": "dynamiczone",
       "components": [
+        "comps.hero",
         "comps.image-collection",
-        "comps.rich-text",
-        "comps.hero"
+        "comps.rich-text"
       ]
     },
     "page_name": {
@@ -28,6 +28,12 @@
     },
     "seo_title": {
       "type": "string"
+    },
+    "highlighted_projects": {
+      "displayName": "highlighted_projects",
+      "type": "component",
+      "repeatable": true,
+      "component": "comps.highlighted-projects"
     }
   }
 }

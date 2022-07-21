@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_comps_highlighted_projects",
+  "info": {
+    "displayName": "highlighted_projects",
+    "icon": "adjust"
+  },
+  "options": {},
+  "attributes": {
+    "blogpost": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blogpost.blogpost"
+    },
+    "text": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
