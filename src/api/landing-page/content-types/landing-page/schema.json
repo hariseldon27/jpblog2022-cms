@@ -29,11 +29,10 @@
     "seo_title": {
       "type": "string"
     },
-    "highlighted_projects": {
-      "displayName": "highlighted_projects",
-      "type": "component",
-      "repeatable": true,
-      "component": "comps.highlighted-projects"
+    "blogposts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blogpost.blogpost"
     }
   }
 }
