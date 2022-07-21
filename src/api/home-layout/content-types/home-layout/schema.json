@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_layouts",
+  "info": {
+    "singularName": "home-layout",
+    "pluralName": "home-layouts",
+    "displayName": "HomeLayout",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blogposts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blogpost.blogpost"
+    },
+    "home_title": {
+      "type": "string"
+    },
+    "seo_title": {
+      "type": "string"
+    },
+    "seo_description": {
+      "type": "string"
+    },
+    "home_copy": {
+      "type": "richtext"
+    },
+    "home_top_hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comps.hero"
+    }
+  }
+}
