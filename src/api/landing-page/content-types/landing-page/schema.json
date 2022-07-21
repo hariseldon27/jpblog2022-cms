@@ -4,7 +4,8 @@
   "info": {
     "singularName": "landing-page",
     "pluralName": "landing-pages",
-    "displayName": "LandingPage"
+    "displayName": "LandingPage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,15 @@
         "comps.rich-text",
         "comps.hero"
       ]
+    },
+    "page_name": {
+      "type": "string"
+    },
+    "seo_description": {
+      "type": "string"
+    },
+    "seo_title": {
+      "type": "string"
     }
   }
 }
