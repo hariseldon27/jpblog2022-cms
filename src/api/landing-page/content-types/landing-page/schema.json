@@ -33,6 +33,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::blogpost.blogpost"
+    },
+    "page_hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comps.hero"
     }
   }
 }
