@@ -42,14 +42,8 @@ module.exports = createCoreController(modelUid, ({ strapi }) =>  ({
             const { data, meta } = await super.find(ctx);
             const model = strapi.getModel(modelUid)
             // some more logic
-            console.log('************')
-            // console.log(model.attributes.top_landing)
-            console.log(ctx.response)
-            console.log('************')
             const sanitizedEntity = await this.sanitizeOutput(data, ctx);
-            // console.log('************')
-            // console.log(sanitizedEntity)
-            // console.log('************')
+
             return this.transformResponse(sanitizedEntity);
             // return { data };
 
