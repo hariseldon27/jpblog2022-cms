@@ -18,11 +18,6 @@ const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::landing-page.landing-page", ({ strapi }) => ({
 
-    // async findOne(ctx) {
-    //     const entry = await strapi.entityService.findOne('api::landing-page.landing-page', 1, {
-    //         populate: { someRelation: true },
-    //         });
-    // },
     async findOne(ctx) {
         const { page_name } = ctx.params
         // console.log(ctx)
@@ -35,7 +30,7 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
         const pageFind = await strapi.entityService.findMany("api::landing-page.landing-page", query);
         
  
-        console.log(pageFind[0].id)
+        // console.log(pageFind[0].id)
 
         const returnQuery = {
             populate: {
@@ -51,21 +46,21 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
                     },
                 }
             },
-            ...ctx.query
+            // ...ctx.query
         }
 
         const returnPage = await strapi.entityService.findOne("api::landing-page.landing-page", pageFind[0].id, returnQuery)
-        console.log('VVVVVVVVVV')
-        console.log('VV RAW  VV')
-        console.log(returnPage)
-        console.log('^^^^^^^^^^^^^^^^')
+        // console.log('VVVVVVVVVV')
+        // console.log('VV RAW  VV')
+        // console.log(returnPage)
+        // console.log('^^^^^^^^^^^^^^^^')
 
-        const sanitizedEntity = await this.sanitizeOutput(returnPage);
+        // const sanitizedEntity = await this.sanitizeOutput(returnPage);
 
-        console.log('VVVVVVVVVVVVVVVV')
-        console.log('VV SANITIZED  VV')
-        console.log(sanitizedEntity)
-        console.log('^^^^^^^^^^^^^^^^')
+        // console.log('VVVVVVVVVVVVVVVV')
+        // console.log('VV SANITIZED  VV')
+        // console.log(sanitizedEntity)
+        // console.log('^^^^^^^^^^^^^^^^')
 
 
         return this.transformResponse(returnPage);
