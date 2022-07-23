@@ -42,6 +42,8 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
                     populate: {
                         title: true,
                         featured_image: true,
+                        // author: true, // check these for populating the postOverrides - they aren't in the homepage response
+                        // tags: true,
                     },
                 }
             },
