@@ -30,8 +30,6 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
         const pageFind = await strapi.entityService.findMany("api::landing-page.landing-page", query);
         
  
-        // console.log(pageFind[0].id)
-
         const returnQuery = {
             populate: {
                 page_body: {
@@ -43,6 +41,7 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
                 blogposts: {
                     populate: {
                         title: true,
+                        featured_image: true,
                     },
                 }
             },
