@@ -42,7 +42,7 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
                     populate: {
                         title: true,
                         featured_image: true,
-                        authors: true, // i want this, but we need to figure out how to sanitize properly
+                        // authors: true, // i want this, but we need to figure out how to sanitize properly
                         tags: true,
                     },
                 }
@@ -64,6 +64,6 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
         // console.log('^^^^^^^^^^^^^^^^')
 
 
-        return this.transformResponse(sanitizedReturn);
+        return this.transformResponse(returnPage);
     },
 }));
