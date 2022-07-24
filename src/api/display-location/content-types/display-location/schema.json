@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "blogposts": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::blogpost.blogpost",
-      "inversedBy": "display_locations"
-    },
     "location": {
       "type": "enumeration",
       "enum": [

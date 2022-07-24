@@ -47,11 +47,13 @@
     "date": {
       "type": "date"
     },
-    "display_locations": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::display-location.display-location",
-      "mappedBy": "blogposts"
+    "page_body": {
+      "type": "dynamiczone",
+      "components": [
+        "comps.hero",
+        "comps.image-collection",
+        "comps.rich-text"
+      ]
     }
   }
 }
