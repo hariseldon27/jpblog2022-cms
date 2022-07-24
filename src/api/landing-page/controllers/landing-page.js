@@ -42,7 +42,7 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
                     populate: {
                         title: true,
                         featured_image: true,
-                        authors: true, // check these for populating the postOverrides - they aren't in the homepage response
+                        authors: true, // i want this, but we need to figure out how to sanitize properly
                         tags: true,
                     },
                 }
@@ -56,7 +56,7 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
         // console.log(returnPage)
         // console.log('^^^^^^^^^^^^^^^^')
 
-        // const sanitizedEntity = await this.sanitizeOutput(returnPage);
+        const sanitizedReturn = await this.sanitizeOutput(returnPage);
 
         // console.log('VVVVVVVVVVVVVVVV')
         // console.log('VV SANITIZED  VV')
@@ -64,6 +64,6 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
         // console.log('^^^^^^^^^^^^^^^^')
 
 
-        return this.transformResponse(returnPage);
+        return this.transformResponse(sanitizedReturn);
     },
 }));
