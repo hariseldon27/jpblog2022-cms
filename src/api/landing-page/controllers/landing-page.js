@@ -31,6 +31,11 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
  
         const returnQuery = {
             populate: {
+                page_hero: {
+                    populate: {
+                        image: true
+                    }
+                },
                 page_body: {
                     populate: {
                         source: true,
