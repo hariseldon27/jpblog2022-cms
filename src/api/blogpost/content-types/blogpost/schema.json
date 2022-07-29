@@ -54,6 +54,17 @@
         "comps.image-collection",
         "comps.rich-text"
       ]
+    },
+    "post_type": {
+      "type": "enumeration",
+      "enum": [
+        "blog",
+        "photo",
+        "video"
+      ]
+    },
+    "post_slug": {
+      "type": "string"
     }
   }
 }

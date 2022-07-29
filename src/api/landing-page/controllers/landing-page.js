@@ -33,7 +33,7 @@ module.exports = createCoreController("api::landing-page.landing-page", ({ strap
             populate: {
                 page_hero: {
                     populate: {
-                        image: true
+                        title: true
                     }
                 },
                 page_body: {
