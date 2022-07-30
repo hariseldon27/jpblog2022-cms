@@ -57,8 +57,8 @@
          const returnPost = await strapi.entityService.findOne("api::blogpost.blogpost", postFind[0].id, returnQuery)
  
         //  const sanitizedReturn = await this.sanitizeOutput(returnPage); // this strips out all the related data - need to find and correct in santizer
-        //  console.log(returnPost.publishedAt)
-         const prevEntryArr = await strapi.entityService.findMany('api::blogpost.blogpost', {
+
+        const prevEntryArr = await strapi.entityService.findMany('api::blogpost.blogpost', {
             sort: {
                 publishedAt: 'asc'
             },
@@ -68,7 +68,7 @@
               },
             },
           })
-          const nextEntryArr = await strapi.entityService.findMany('api::blogpost.blogpost', {
+        const nextEntryArr = await strapi.entityService.findMany('api::blogpost.blogpost', {
             sort: {
                 publishedAt: 'asc'
             },
@@ -79,6 +79,16 @@
             },
           })
 
+        //   const paginationQuery = {
+        //     populate: {
+        //         featured_image: {
+        //             populate: {
+        //                 formats: true
+        //             }
+        //         }
+        //     }
+        //   }
+
           const prevEntry = prevEntryArr.length > 0 ? await strapi.entityService.findOne('api::blogpost.blogpost', prevEntryArr[0].id) : null
           const nextEntry = nextEntryArr.length > 0 ? await strapi.entityService.findOne('api::blogpost.blogpost', nextEntryArr[0].id) : null
 
@@ -87,8 +97,6 @@
             nextPost: nextEntry,
 
           }
-        // const pagination = {pageme: '23'}
-         let transformed = this.transformResponse(returnPost)
          return this.transformResponse(returnPost, pagination);
      },
  }));
