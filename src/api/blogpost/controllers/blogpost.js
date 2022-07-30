@@ -11,7 +11,7 @@
 // module.exports = createCoreController('api::blogpost.blogpost');
 
 /**
- *  custom landing-page controller
+ *  custom blogpost controller
  */
 
  const { createCoreController } = require("@strapi/strapi").factories;
@@ -19,7 +19,7 @@
  module.exports = createCoreController("api::blogpost.blogpost", ({ strapi }) => ({
  
      async findOne(ctx) {
-        console.log(ctx.params)
+        // console.log(ctx.params)
          const { post_slug } = ctx.params
  
          const query = {
@@ -48,14 +48,47 @@
                      populate: {
                          tag: true,
                      },
-                 }
+                 },
+                 id: true,
+                 meta: true,
              },
          }
  
          const returnPost = await strapi.entityService.findOne("api::blogpost.blogpost", postFind[0].id, returnQuery)
  
-        //  const sanitizedReturn = await this.sanitizeOutput(returnPage);
- 
-         return this.transformResponse(returnPost);
+        //  const sanitizedReturn = await this.sanitizeOutput(returnPage); // this strips out all the related data - need to find and correct in santizer
+        //  console.log(returnPost.publishedAt)
+         const prevEntryArr = await strapi.entityService.findMany('api::blogpost.blogpost', {
+            sort: {
+                publishedAt: 'asc'
+            },
+            filters: {
+              publishedAt: {
+                $lt: returnPost.publishedAt,
+              },
+            },
+          })
+          const nextEntryArr = await strapi.entityService.findMany('api::blogpost.blogpost', {
+            sort: {
+                publishedAt: 'asc'
+            },
+            filters: {
+              publishedAt: {
+                $gt: returnPost.publishedAt,
+              },
+            },
+          })
+
+          const prevEntry = prevEntryArr.length > 0 ? await strapi.entityService.findOne('api::blogpost.blogpost', prevEntryArr[0].id) : null
+          const nextEntry = nextEntryArr.length > 0 ? await strapi.entityService.findOne('api::blogpost.blogpost', nextEntryArr[0].id) : null
+
+          const pagination = {
+            prevPost: prevEntry,
+            nextPost: nextEntry,
+
+          }
+        // const pagination = {pageme: '23'}
+         let transformed = this.transformResponse(returnPost)
+         return this.transformResponse(returnPost, pagination);
      },
  }));
